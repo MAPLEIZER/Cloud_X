@@ -147,22 +147,6 @@ def clear():
         sys.stdout.write("\033[F")
         sys.stdout.write("\033[K") #clears until EOL
 
-# CloudX Logo
-def logo():
-    print(bcolors.WARNING)
-    logo_ascii = """
-                                  __         __
-                                 /__)_  """+bcolors.BADFAIL+" ●"+bcolors.WARNING+"""_/(  _ _
-                                / ( (//)/(/__)( (//)
-                                     /
-                     """+bcolors.ENDC+"""(The Multi-Tool Web Vulnerability Scanner)
-
-                     Check out our new software, """+bcolors.BG_LOW_TXT+"""NetBot"""+bcolors.ENDC+""" for simulating DDoS attacks - https://github.com/skavngr/netbot
-    """
-    print(logo_ascii)
-    print(bcolors.ENDC)
-
-
 # Initiliazing the idle loader/spinner class
 class Spinner:
     busy = False
@@ -1382,7 +1366,6 @@ rs_avail_tools = 0
 rs_skipped_checks = 0
 
 if len(sys.argv) == 1:
-    logo()
     helper()
     sys.exit(1)
 
@@ -1393,10 +1376,10 @@ if args_namespace.nospinner:
 
 if args_namespace.help or (not args_namespace.update \
     and not args_namespace.target):
-    logo()
+    
     helper()
 elif args_namespace.update:
-    logo()
+
     print("CloudX is updating....Please wait.\n")
     spinner.start()
     # Checking internet connectivity first...
@@ -1408,7 +1391,7 @@ elif args_namespace.update:
     cmd = 'sha1sum cloudx.py | grep .... | cut -c 1-40'
     oldversion_hash = subprocess.check_output(cmd, shell=True)
     oldversion_hash = oldversion_hash.strip()
-    os.system('wget -N https://raw.githubusercontent.com/skavngr/cloudx/master/cloudx.py -O cloudx.py > /dev/null 2>&1')
+    os.system('wget -N https://raw.githubusercontent.com/MAPLEIZER/Cloud_X/main/cloudx.py -O cloudx.py > /dev/null 2>&1') #S://github.com/MAPLEIZER/Cloud_X.git
     newversion_hash = subprocess.check_output(cmd, shell=True)
     newversion_hash = newversion_hash.strip()
     if oldversion_hash == newversion_hash :
@@ -1427,7 +1410,6 @@ elif args_namespace.target:
     os.system('rm /tmp/cloudx* > /dev/null 2>&1') # Clearing previous scan files
     os.system('clear')
     os.system('setterm -cursor off')
-    logo()
     print(bcolors.BG_HEAD_TXT+"[ Checking Available Security Scanning Tools Phase... Initiated. ]"+bcolors.ENDC)
 
     unavail_tools_names = list()
@@ -1579,3 +1561,4 @@ elif args_namespace.target:
 
     os.system('setterm -cursor on')
     os.system('rm /tmp/cloudx_te* > /dev/null 2>&1') # Clearing previous scan files
+input("Press enter to close program")
