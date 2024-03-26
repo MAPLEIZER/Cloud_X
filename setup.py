@@ -13,7 +13,7 @@ setup(
     name                =   "cloudx",
     version             =   '1.0',
     description         =   "A Multi-Tool Web Vulnerability Scanner.",
-    url                 =   "https://github.com/skavngr/rapidscan",
+    url                 =   "https://github.com/MAPLEIZER/Cloud_X.git",
     author              =   "sh4nx0r",
     py_modules          =   ['rapidscan',],
     install_requires    =   [],
